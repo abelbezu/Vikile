@@ -1,0 +1,220 @@
+
+	<div class = 'container article_content'>
+		<div class = "col-md-8 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-body global_bold_description_wrapper">
+					<h2> Basic panel example </h2>
+				</div>
+			</div>
+			<form accept-charset="UTF-8" action="create" class="new_article" id="new_article" method="post">
+				<div class="panel panel-default articles_new_panel_heading">
+					<div class="panel-heading">
+						<h2 class="panel-title">Panel title</h2>
+					</div>
+
+					<input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value=<%=  form_authenticity_token %>>
+					<div class="panel-body">
+						<div class = "col-md-10 col-xs-12">
+							Enter your article's title below and click on Submit.
+							<br> 
+							Be sure to phrase it in the form of a "how-to" (e.g. How to Walk a Dog)
+							<div class="form-group">
+								<label>How To</label>
+
+								<input id="article_title" name="article[title]" type="text" class = "form-control">
+							</div>
+						</div>          
+					</div>
+				</div>
+				<div class="panel panel-default articles_new_panel_heading">
+					<div class="panel-heading ">
+						<h2 class="panel-title">Panel title</h2>
+					</div>
+					<div  class = "articles_new_content_wrapper">
+						<div class="panel-body">
+							<textarea id="article_introduction" name="article[introduction]" type="text" class ="form-control" rows = '3'></textarea>
+
+						</div>
+					</div>
+				</div>
+				<div id ="an_main_content_methods_wrapper">
+					<div id = "an_main_content_method" class="panel panel-default articles_new_panel_heading">
+						<div class="panel-heading ">
+							<h2 class="panel-title">
+								<div id="method_selector">
+									This article has: 
+									<input type="radio"  name="article[part_format]" id = "an_methods" value="methods"> Multiple Methods <a id="methods"></a>
+									<input type="radio" name="article[part_format]" id = "an_parts" value="parts"> Multiple Parts <a id ="parts"></a>
+									<input type="radio" name="article[part_format]" id = "an_neither" value="neither" checked="checked"> Neither <a class="neither"></a>
+								</div>
+							</h2>
+						</div>
+						<div id = 'an_method_container_panel' class = ''>
+							<div id = 'an_content_wrapper_0' class = "articles_new_content_wrapper">
+								<div id = 'an_method_wrapper_0' class = 'global_hidden'>
+									<div class = "global_bold_description_wrapper">
+										<h4>
+											<span class = "an_method_text" id = "an_method_txt" style = 'margin-left: 5px;'>Method</span>&nbsp;<span id = "an_method_position_0">1</span> of <span class = 'an_method_count'>1</span>
+											<input class= 'an_part_position'name= "article[parts_attributes][0][part_position]" type="hidden" value="">
+										</h4>
+									</div>
+									<div class="form-group">
+
+
+										<input id="an_method_title_0" name="article[parts_attributes][0][part_title]" type="text" class ="form-control">
+									</div>
+								</div>
+								<div class = "global_bold_description_wrapper">
+									<h4>
+										Steps
+
+									</h4>
+									Enter each step of your article here. Press "Add Step" after each individual step.
+								</div>
+								<div id ="an_methods_wrapper_0">
+									<div id ="an_steps_wrapper_0">
+										<div  id = "an_main_input_wrapper_0_0">
+											<div id = "an_main_input_0_0" class = "articles_new_main_input">
+												<div class = "articles_new_main_input_left">
+													<div class="global_bold_description_wrapper">
+														<h2><span id = "an_step_number_0_0"> 1</span> </h2>
+													</div>
+												</div>
+												<div class = "articles_new_main_input_right">
+													<div class = "articles_new_bullets_button_wrapper">
+														<button type="button" stepposition = '0' id = "an_bullets_button_0_0"class="btn btn-default">1</button>
+													</div>
+
+													<div style = " margin-top: 10px;">
+
+														<textarea id="an_main_input_text_area_0_0" name="article[parts_attributes][0][contents_attributes][0][content_body]" type="text" class ="form-control" rows = '3'></textarea>
+														
+								   		
+													</div>
+
+
+												</div>
+											</div>
+											<div style="clear: both;"></div> 
+										</div>
+									</div>
+								</div>
+								<div style = " margin-top: 10px;">
+									<button type="button" id = "an_add_step_button" methodPosition = '0' class="an_add_step_button articles_new_button btn btn-default">Add Step</button>
+								</div>
+								<div style="clear: both;"></div> 
+							</div>
+						</div>
+					</div>
+					<div id = 'an_added_method_container_panel' class="global_hidden">
+						
+					</div>
+				</div>
+				<div id = "an_add_method_panel" class="global_hidden panel panel-default">
+					<div  class = "articles_new_content_wrapper" style = "height: 30px;">
+						<div class = "articles_new_add_section_left">
+							Do you have another method for Use Bootstrap in Rails? 
+						</div>
+						<div class = "articles_new_add_section_right">
+							<button type="button" id = 'an_add_method_button' class="articles_new_button btn btn-default">Add <span id = "an_add_method_btn_txt">Method</span></button>
+							<div style="clear: both;"></div> 
+						</div>
+
+
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class = "articles_new_content_wrapper">
+
+						<div class = "global_bold_description_wrapper">
+							<h4>
+								Tips
+
+							</h4>
+							Enter any useful tips here. Press "Add Tip" after each individual tip.
+						</div>
+						<div id = "an_tips_container" class = "articles_new_tips_container">
+							<div id =  'an_tip_wrapper_0' class = "articles_new_tips_text_area" style = "margin-top: 20px;">
+								<textarea id="an_articles_new_tip_0" name="article[tips][0][tip_body]" type="text" class ="form-control" rows = '3'></textarea>
+							</div>
+
+						</div>
+						<div class = "articles_new_add_section_right">
+							<button style = "float:right; margin-top: 10px;" type="button" class="an_add_tips_button btn btn-default" class ="form-control">Add Tip</button>
+
+						</div>
+						<div style = "clear:both"> </div>
+
+					   </div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class = "articles_new_content_wrapper">
+
+						<div class = "global_bold_description_wrapper">
+							<h4>
+								Warnings
+
+							</h4>
+							Enter any useful tips here. Press "Add Warning" after each individual tip.
+						</div>
+						<div id = "an_warnings_container" class = "articles_new_warnings_container">
+							<div id =  'an_warning_wrapper_0' class = "articles_new_warnings_text_area" style = "margin-top: 20px;">
+								<textarea id="an_articles_new_warning_0" name="article[warnings][0][warning_body]" type="text" class ="form-control" rows = '3'></textarea>
+							</div>
+
+						</div>
+						<div class = "articles_new_add_section_right">
+							<button style = "float:right; margin-top: 10px;" type="button" class="an_add_warnings_button btn btn-default">Add Warning</button>
+
+						</div>
+						<div style = "clear:both"> </div>
+
+					</div>
+				</div>
+				
+				<div class="panel panel-default">
+					<div class = "ariticles_new_add_source_text">
+						<div class = "global_bold_description_wrapper">
+							<h4 class ="cursor_pointer">
+								Add Sources and Citations
+
+							</h4>
+							
+						</div>
+					</div> 
+					<div id = "an_source_main_wrapper" class = "articles_new_content_wrapper global_hidden">
+
+						<div class = "global_bold_description_wrapper">
+							<h4>
+								Sources and Citations
+
+							</h4>
+							Enter sources here. Press "Add Source" after each individual source.
+						</div>
+						<div id = "an_sources_container" class = "articles_new_sources_container">
+							<div id =  'an_source_wrapper_0' class = "articles_new_sources_text_area" style = "margin-top: 20px;">
+								<textarea id="an_articles_new_source_0" name="article[sources][0][source_body]" type="text" class ="form-control" rows = '3'></textarea>
+							</div>
+
+						</div>
+						<div class = "articles_new_add_section_right">
+							<button style = "float:right; margin-top: 10px;" type="button" class="an_add_sources_button btn btn-default">Add Source</button>
+
+						</div>
+						<div style = "clear:both"> </div>
+
+					</div>
+				</div>
+				
+					<div class ="articles_new_submit_button_wrapper">
+						<div class ="an_submit_button_wrapper">
+							<button   type="button" class="an_submit_button btn btn-success">Discard</button>
+							<input class="an_submit_button btn btn-success" name="commit" type="submit" value="Submit">
+						</div>	 
+						
+					</div>
+				
+			</form>
+		</div>
+	</div>

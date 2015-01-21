@@ -1,0 +1,243 @@
+<div class="main_body">
+	<div class="main_body_row row">
+		<div class="article_info col-xs-12 col-lg-12">
+			<a href="#" class="articles_info_text">Options </a>
+			<a href="#" class="articles_info_text">Edit </a>
+			<a href="#" class="articles_info_text">Share </a>
+		</div>
+	<div class="article_plus_steps_row row">
+		<div class="main_article col-xs-12 col-md-8">
+
+				<div class="article_info col-xs-12">
+					<div class="panel article_info_panel panel-default">
+						<div class="panel-heading article_title_heading">
+							<h3 class="article_title"><%= @article.title%></h3>
+						</div>
+						<div class="panel-body">
+							<%= @article.introduction%>
+						</div>
+					</div>
+				</div>
+
+				<% @article.parts.method_parts.each do |method_part| %>
+				<div class="article_part1 article_part col-xs-12">
+					<div class="part_title">
+						<div class = "part_1_heading_anchor"></div>
+						<h2 id="part_1_heading" class = 'part_heading'><%= method_part.part_title%></h2>
+					</div>
+					<% method_part.contents.each do |method_step|%>
+					<div class="panel panel-default step_2">
+
+						<div class="panel-body instructions_pic">
+							<img src="pic2.jpg" class="main_article_step_pic"> 
+						</div>
+						<div class="panel-body instructions_panel">
+							<%= method_step.content_body%>
+						</div>
+					</div><!-- end step -->
+					<%end%>
+				</div><!-- end part coloumn -->
+
+				<%end%>
+
+			</div><!-- end main article -->
+		</div><!-- end row with article and steps-->
+
+		<div class="main_article col-xs-12 col-md-8">	
+			<% @article.parts.tip_parts.each do |tip_part| %>
+
+			<div class="article_part1 article_part col-xs-12">
+				<div class="part_title">
+					<div class = "part_1_heading_anchor"></div>
+					<h2 id="part_1_heading" class = 'part_heading'>Tips</h2>
+				</div>
+
+				<div class="panel panel-default step_2">
+
+					<div class="panel-body instructions_pic">
+						<img src="pic2.jpg" class="main_article_step_pic"> 
+					</div>
+					<div class="panel-body instructions_panel">
+						<%= tip_part.contents.first.content_body%>
+					</div>
+				</div><!-- end step -->
+
+			</div><!-- end part coloumn -->			   
+
+			<%end%>
+		</div><!-- end main article -->
+
+		<div class="main_article col-xs-12 col-md-8">
+
+			<% @article.parts.warning_parts.each do |warning_part| %>
+			<div class="article_part1 article_part col-xs-12">
+				<div class="part_title">
+					<div class = "part_1_heading_anchor"></div>
+					<h2 id="part_1_heading" class = 'part_heading'>Warnings</h2>
+				</div>
+
+				<div class="panel panel-default step_2">
+
+					<div class="panel-body instructions_pic">
+						<img src="pic2.jpg" class="main_article_step_pic"> 
+					</div>
+					<div class="panel-body instructions_panel">
+						<%= warning_part.contents.first.content_body%>
+					</div>
+				</div><!-- end step -->
+
+			</div><!-- end part coloumn -->		
+
+			<%end%>
+		</div><!-- end main article -->
+
+		<div class="main_article col-xs-12 col-md-8">
+			<% @article.parts.source_parts.each do |source_part| %>
+			<div class="article_part1 article_part col-xs-12">
+				<div class="part_title">
+					<div class = "part_1_heading_anchor"></div>
+					<h2 id="part_1_heading" class = 'part_heading'>Sources</h2>
+				</div>
+
+				<div class="panel panel-default step_2">
+
+					<div class="panel-body instructions_panel">
+						<%= source_part.contents.first.content_body%>
+					</div>
+				</div><!-- end step -->
+
+			</div><!-- end part coloumn -->		
+
+			<%end%>
+		</div><!-- end main article -->
+
+		
+
+
+
+		<div class="page_info_and_related col-xs-12 col-md-4">
+			<div class="page_info_and_related_row">
+				<div class="about_article col-xs-12">
+					<div class="panel panel-default about_panel">
+						<div class="panel-heading article_info_heading">
+							<h5 class="panel-title about_title">About This Article</h5>
+						</div>
+						<div class="panel-body ">
+
+
+
+							<div class=" article_info_ind panel panel-default">
+								<div class="panel-heading ind_heading">
+									<h3 class="panel-title">Panel title</h3>
+								</div>
+								<div class="panel-body">
+									<div class="about_icon"><span class="glyphicon text-center glyphicon-pencil" style="font-size:19px;"></span></div>
+									<div class="about_details_text">
+										<p>5</p>
+									</div>
+									<div class="about_text text-center">
+										<p>Shares</p>
+									</div>
+								</div>
+							</div><!-- end individual article about panel-->
+
+							<div class="article_info_ind panel panel-default">
+								<div class="panel-heading ind_heading">
+									<h3 class="panel-title">Panel title</h3>
+								</div>
+								<div class="panel-body">
+									<div class="about_icon"><span class="glyphicon text-center glyphicon-thumbs-up" style="font-size:19px;"></span><span class="glyphicon text-center glyphicon-thumbs-down" style="font-size:19px;"></span></div>
+									<div class="about_details_text">
+										<p>75%</p>
+									</div>
+									<div class="about_text text-center">
+										<p>Likes</p>
+									</div>
+								</div>
+							</div><!-- end individual article about panel-->
+
+							<div class="article_info_ind panel panel-default">
+								<div class="panel-heading ind_heading">
+									<h3 class="panel-title">Panel title</h3>
+								</div>
+								<div class="panel-body">
+									<div class="about_icon"><span class="glyphicon text-center glyphicon-refresh" style="font-size:19px;"></span></div>
+									<div class="about_text text-center">
+										<p>Shares</p>
+									</div>
+									<div class="about_details_text">
+										<p>1,134,122</p>
+									</div>
+
+								</div>
+
+							</div><!-- end individual article about panel-->
+							<div class="article_info_ind panel  panel-default">
+								<div class="panel-heading ind_heading">
+									<h3 class="panel-title">Panel title</h3>
+								</div>
+								<div class="panel-body ">
+									<div class="about_icon"><span class="glyphicon text-center glyphicon-eye-open" style="font-size:19px;"></span></div>
+
+									<div class="about_text text-center">
+										<p>Follow</p>
+									</div>
+								</div>
+							</div><!-- end individual article about panel-->
+						</div>
+					</div><!-- end about panel -->
+				</div><!-- end about column -->
+				<div class="col-xs-12 options_buttons">
+					<div class="main_buttons_div">
+						<button type="button" class="btn btn-success main_button">
+							Random Article
+						</button>
+						<button type="button" class="btn btn-success main_button">
+							Make Article
+						</button>
+						<button type="button" class="btn btn-success main_button">
+							Request Drawing
+						</button>
+					</div>
+				</div>
+				<div class="social col-xs-12">
+					<div class="social_panel panel panel-default">
+						<div class="panel-body">
+							<div class="facebook_button">
+								<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="450px" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+							</div>
+							<div class="twitter_button">
+								<a class="twitter-share-button"
+								href="https://twitter.com/share"
+								data-url="https://dev.twitter.com/web/tweet-button"
+								data-via="your_screen_name"
+								data-text="Checking out this page about the Tweet Button"
+								data-related="twitterdev:Twitter Developer Relations"
+								data-count="vertical"> Tweet </a>
+							</div>
+							<div class="email_button">
+								<div class="bubble">
+									<div class="email_share_count">
+										420
+									</div>
+								</div>
+								<div class="email_button_div_bottom">
+									<a class="btn btn-default email_btn" href="#" role="button">
+										<img class="emailshare_icon" src="fonts/icons1/png/mail.png">
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 ad">
+					google sercies
+				</div>
+				<div class="related_articles col-xs-12">
+					hey look, we are related
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

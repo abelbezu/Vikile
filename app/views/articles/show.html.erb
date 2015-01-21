@@ -1,0 +1,80 @@
+
+<div class = 'row'>
+<div class = 'container article_content'>
+<div class = "col-md-8 col-xs-12">
+<div class="panel panel-default articles_new_panel_heading">
+  <div class="panel-heading ">
+    <h2 class="panel-title">
+    	<div id="method_selector">
+		    This article has: 
+			<input type="radio"  name="method_format" id = "an_methods" value="methods"> Multiple Methods <a id="methods"></a>
+			<input type="radio" name="method_format" id = "an_parts" value="parts"> Multiple Parts <a id ="parts"></a>
+			<input type="radio" name="method_format" id = "an_neither" value="neither" checked="checked"> Neither <a class="ac_question neither"></a>
+        </div>
+    </h2>
+  </div>
+<div class = "articles_new_content_wrapper">
+
+	<div id = 'an_method_wrapper' class = 'global_hidden'>
+		 <div class = "global_bold_description_wrapper">
+			<h4>
+				Method 1 of 1
+			</h4>
+		</div>
+		<div class="form-group">
+
+
+			
+		</div>
+	</div>
+	<div class = "global_bold_description_wrapper">
+		<h4>
+			Steps
+
+		</h4>
+		Enter each step of your article here. Press "Add Step" after each individual step.
+	</div>
+
+		<div id = "an_main_input" class = "articles_new_main_input">
+			<div style = "width: 100%;">
+			<div class = "articles_new_main_input_left">
+												<div class="global_bold_description_wrapper">
+													<h2><span id = "an_step_number_0_0"> 1</span> </h2>
+												</div>
+											</div>
+											<div class = "articles_new_main_input_right">
+												<div class = "articles_new_bullets_button_wrapper">
+													<button type="button" stepposition = '0' id = "an_bullets_button_0_0"class="btn btn-default an_bullets_button">1</button>
+												</div>
+
+												<div class = "articles_new_step_text_area" style = " margin-top: 10px;">
+
+													<%= form_for @article do |f| %>
+														<%= f.fields_for :parts do |task_form| %>
+														  <%= task_form.text_field :part_type %>
+														  
+														<% end %>
+														 <%= submit_tag("Submit", :class => "btn btn-success btn-sm pull-right") %>
+													<%end%>
+
+												</div>
+
+
+											</div>
+										</div>
+										<div style="clear: both;"></div> 
+				<div style="clear: both;"></div> 
+			</div>
+		</div>
+
+
+
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+
