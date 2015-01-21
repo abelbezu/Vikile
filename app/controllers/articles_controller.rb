@@ -1,18 +1,25 @@
 class ArticlesController < ApplicationController
 
 
-	layout "header"
+	layout "main"
+	
+	before_action :confirm_logged_in, :except => [:show, :about, :index]
+
 	def index
 		@article = Article.find(5)
-
+		session[:return_to] = {:controller => 'articles', :action => 'index'}
 	end
 	
 	def new
+		session[:return_to] = {:controller => 'articles', :action => 'new'}
 
 	end
-	def show
-		@article = Article.new
 
+
+
+	def show
+		
+		session[:return_to] = {:controller => 'articles', :action => 'show'}
 	end
 
 	def about
@@ -67,11 +74,7 @@ class ArticlesController < ApplicationController
   		end
 	end
 
-	def test
-		@article = Article.new
-		3.times {@article.parts.build}
-
-	end
+	
 
 	# private 
 	# def article_params

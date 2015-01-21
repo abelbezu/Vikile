@@ -4,6 +4,10 @@ class Account < ActiveRecord::Base
 
 	has_secure_password
 
+	has_many :followers, class_name: "Account",
+                          foreign_key: "follower_id"
+ 
+    belongs_to :followee, class_name: "Account"
 
 	EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 

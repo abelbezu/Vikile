@@ -14,6 +14,26 @@ class ApplicationController < ActionController::Base
 		end
 	end 
 
+	def confirm_admin
+		unless Account.find(session[:user_id]).privilage == 'admin' or Account.find(session[:user_id]).privilage == 'super'
+			flash[:notice] = "Please log in."
+			redirect_to(:controller => 'admin', :action => "login")
+			return false
+		else 
+			return true
+		end
+	end 
+
+	def confirm_super_admin
+		unless Account.find(session[:user_id]).privilage == 'super'
+			flash[:notice] = "Please log in."
+			
+			return false
+		else 
+			return true
+		end
+	end 
+
 	def partial_copy(main_hash_input, list_of_fields)
 		return_hash = Hash.new
 		list_of_fields.each do |x|

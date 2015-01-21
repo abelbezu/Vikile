@@ -1,8 +1,11 @@
 class AccountsController < ApplicationController
-	layout 'application'
-  #before_action :confirm_logged_in, :except => [:index]
+	layout 'main'
+  before_action :confirm_logged_in, :except => [:signup, :create]
+ 
+
   def index
-    render('index')
+    @user = Account.find(session[:user_id])
+    
   end
 
 
@@ -26,6 +29,7 @@ class AccountsController < ApplicationController
   	end
   end
   def signup
+
   end
 
   def edit

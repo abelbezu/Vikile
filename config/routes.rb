@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :articles, only: [:index, :new]
-  root "accounts#index"
+  root "articles#show"
   match '/:controller(/:action(/:id))', :via => [:get, :post]
   match 'auth/:provider/callback', to: 'sessions#create', :via => [:get, :post]
   match 'auth/failure', to: redirect('/') , :via => [:get, :post]

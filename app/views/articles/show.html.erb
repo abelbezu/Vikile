@@ -1,80 +1,1473 @@
+<div class = "main_body">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
-<div class = 'row'>
-<div class = 'container article_content'>
-<div class = "col-md-8 col-xs-12">
-<div class="panel panel-default articles_new_panel_heading">
-  <div class="panel-heading ">
-    <h2 class="panel-title">
-    	<div id="method_selector">
-		    This article has: 
-			<input type="radio"  name="method_format" id = "an_methods" value="methods"> Multiple Methods <a id="methods"></a>
-			<input type="radio" name="method_format" id = "an_parts" value="parts"> Multiple Parts <a id ="parts"></a>
-			<input type="radio" name="method_format" id = "an_neither" value="neither" checked="checked"> Neither <a class="ac_question neither"></a>
-        </div>
-    </h2>
-  </div>
-<div class = "articles_new_content_wrapper">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				</ol>
 
-	<div id = 'an_method_wrapper' class = 'global_hidden'>
-		 <div class = "global_bold_description_wrapper">
-			<h4>
-				Method 1 of 1
-			</h4>
-		</div>
-		<div class="form-group">
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img class = "carousel_img text-center" src="css/background.png" alt="standard background">
+						<div class="carousel-caption">
+							<form class="carousel_search" role="search">
+								<div class="input-group carousel_input">
+									<input type="text" class="form-control" placeholder="Search">
 
+									<span class = "input-group-btn">
+										<button type="submit" class="btn btn-default" aria-label= "Search">
+											<span class="glyphicon glyphicon-search" ></span>
+										</button> </span>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="item ">
+						<img class = "carousel_img" src="css/1pic7.jpg" alt="...">
+						<div class="carousel-caption">
+							<form class="carousel_search" role="search">
+								<div class="input-group carousel_input">
+									<input type="text" class="form-control" placeholder="Search">
 
-			
-		</div>
-	</div>
-	<div class = "global_bold_description_wrapper">
-		<h4>
-			Steps
+									<span class = "input-group-btn">
+										<button type="submit" class="btn btn-default" aria-label= "Search">
+											<span class="glyphicon glyphicon-search" ></span>
+										</button> </span>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="item">
+						<img class = "carousel_img text-center" src="css/2pic7.jpg" alt="standard background">
+						<div class="carousel-caption">
+							<form class="carousel_search" role="search">
+								<div class="input-group carousel_input">
+									<input type="text" class="form-control" placeholder="Search">
 
-		</h4>
-		Enter each step of your article here. Press "Add Step" after each individual step.
-	</div>
+									<span class = "input-group-btn">
+										<button type="submit" class="btn btn-default" aria-label= "Search">
+											<span class="glyphicon glyphicon-search" ></span>
+										</button> </span>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="item">
+						<img class = "carousel_img text-center" src="css/4pic5.jpg" alt="standard background">
+						<div class="carousel-caption">
+							<form class="carousel_search" role="search">
+								<div class="input-group carousel_input">
+									<input type="text" class="form-control" placeholder="Search">
 
-		<div id = "an_main_input" class = "articles_new_main_input">
-			<div style = "width: 100%;">
-			<div class = "articles_new_main_input_left">
-												<div class="global_bold_description_wrapper">
-													<h2><span id = "an_step_number_0_0"> 1</span> </h2>
-												</div>
+									<span class = "input-group-btn">
+										<button type="submit" class="btn btn-default" aria-label= "Search">
+											<span class="glyphicon glyphicon-search" ></span>
+										</button> </span>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class= "bottom_text">
+						Bottom Text
+					</div>
+
+				</div>
+
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+				<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+			</div>
+
+			<div  id = "contentarea" class = "content_area">
+				<div class = "row content_child1">
+					<div id="name" class = "col-xs-8">
+						<div class = "row">
+							<div class = "col-xs-12">
+								<div class = "row category_articles">
+									<div class = "col-xs 12 category_title">
+										<h3> Entertainment </h3>
+									</div>
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="pic1.jpg" href="articles_main.html">
 											</div>
-											<div class = "articles_new_main_input_right">
-												<div class = "articles_new_bullets_button_wrapper">
-													<button type="button" stepposition = '0' id = "an_bullets_button_0_0"class="btn btn-default an_bullets_button">1</button>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
 												</div>
-
-												<div class = "articles_new_step_text_area" style = " margin-top: 10px;">
-
-													<%= form_for @article do |f| %>
-														<%= f.fields_for :parts do |task_form| %>
-														  <%= task_form.text_field :part_type %>
-														  
-														<% end %>
-														 <%= submit_tag("Submit", :class => "btn btn-success btn-sm pull-right") %>
-													<%end%>
-
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "date">
+														March 31, 2020
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+													</div>
 												</div>
-
-
 											</div>
 										</div>
-										<div style="clear: both;"></div> 
-				<div style="clear: both;"></div> 
-			</div>
-		</div>
 
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="2pic1.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"></a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
 
+													</div>
+												</div>
+											</div>
+										</div>
 
-</div>
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="3pic1.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
 
+													</div>
+												</div>
+											</div>
+										</div>
 
-</div>
-</div>
-</div>
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="4pic2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
 
+													</div>
+												</div>
+											</div>
+										</div>
 
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs 12 category_title">
+										<h3> Sports </h3>
+									</div>
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="4pic2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
 
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="5pic12.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="2pic1.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="2pic1.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs 12 category_title">
+										<h3> Technology </h3>
+									</div>
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src="fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/3.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"></a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/5.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/4.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs 12 category_title">
+										<h3> Relationships </h3>
+									</div>
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/6.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/8.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs 12 category_title">
+										<h3> Health </h3>
+									</div>
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/3.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"></a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/5.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/4.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs 12 category_title">
+										<h3> Turkish Culture </h3>
+									</div>
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/6.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/8.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs 12 category_title">
+										<h3> Food </h3>
+									</div>
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/3.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"></a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/5.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/4.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs 12 category_title">
+										<h3> Education </h3>
+									</div>
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/6.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/8.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="css/2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs 12 category_title">
+										<h3> Business Life</h3>
+									</div>
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="5pic12.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="pic1.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"></a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="2pic1.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="4pic2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs 12 category_title">
+										<h3> Personal </h3>
+									</div>
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="4pic2.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="3pic1.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"></a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src=".jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+									<div class = "col-xs-12 col-md	-6 col-lg-3 tutorial">
+										<div class="panel panel-default">
+											<div class="panel-body panel_top">
+												<img src="2pic1.jpg">
+											</div>
+											<div class="panel-body">
+												<div class = "title">
+													<a href="articles_main.html" >Playing better defense</a>
+												</div>
+												<div class = "info">
+													<div class = "shares">
+														<img class= "share_icon" src = "fonts/icons1/png/signal.png">
+														<p class = "shares_count">
+															520
+														</p>
+														<p class = "shares_text">
+															shares
+														</p>
+													</div>
+													<div class = "social">
+														<div class = "facebook_button">
+															<div class="fb-like" style = "margin-bottom:" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+														</div>
+														<a class="twitter-share-button" href="https://twitter.com/share" data-count = "none"> </a>
+														<a class="btn btn-default email_share" href="#" role="button">Email Share</a>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div><!-- end of individual tutorial column-->
+
+								</div><!-- article rows -->
+							</div><!-- main content row -->
+						</div>
+					</div>
+					<div id= "side_area" class = "col-xs-4 side_area_col">
+						<div calss = "row content_child2">
+							<div class = "col-xs-12 main_buttons">
+								<div class = "main_buttons_div">
+									<button type="button" class="btn btn-success main_button">
+										Random Article
+									</button>
+									<button type="button" class="btn btn-success main_button">
+										Make Article
+									</button>
+									<button type="button" class="btn btn-success main_button">
+										Request Drawing
+									</button>
+								</div>
+							</div>
+							<div class = "col-xs-12 hot_articles">
+								<div class="hot_articles_panel panel panel-default">
+									<div class="panel-heading"></div>
+									<div class="panel-body">
+										<div class = "hot_articles_div">
+											<div class="panel hot_articles_indv_panel panel-default">
+												<div class="panel-body">
+													Most Read
+												</div>
+												<div class="panel-body hot_articles">
+
+												</div>
+											</div>
+											<div class="panel hot_articles_indv_panel panel-default">
+												<div class="panel-body">
+													Most Shared
+												</div>
+												<div class="panel-body hot_articles">
+
+												</div>
+											</div>
+											<div class="panel hot_articles_indv_panel panel-default">
+												<div class="panel-body">
+													Most Edited
+												</div>
+												<div class="panel-body hot_articles">
+
+												</div>
+											</div>
+											<div class="panel hot_articles_indv_panel panel-default">
+												<div class="panel-body">
+													Most Written
+												</div>
+												<div class="panel-body hot_articles">
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 ads">
+						<div class="ads_wrapper">
+							<div class="ind_ad_small">
+								<img src="ad_ph_2.jpg" class="ad_img" id="#">
+							</div>
+						</div>
+					</div><!-- end ad column -->
+							<div class = "col-xs-12">
+
+							</div>
+						</div>
+					</div><!-- end buttons column -->
+					
+				</div><!--- end content child 1 row -->
+			</div><!--end main content area -->
+		</div

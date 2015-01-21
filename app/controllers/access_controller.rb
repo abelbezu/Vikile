@@ -25,7 +25,7 @@ class AccessController < ApplicationController
 			
 			session[:picture] = authorized_user.picture
 			flash[:notice] = "You are now logged in."
-			redirect_to(:controller => 'accounts', :action =>'index')
+			redirect_to(session[:return_to])
 		else flash[:notice] = "--Failed-Login--"
 			redirect_to(:action => 'login')
 		end
