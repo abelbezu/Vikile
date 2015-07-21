@@ -1,0 +1,101 @@
+<div class = "col-md-10">
+<script type="text/javascript" charset="utf8" src="/DataTables-1.10.4/media/js/jquery.dataTables.js"></script>
+
+
+      
+      <div class="row" >
+           <div class="content-container clearfix">
+               <div class="col-md-12" >
+                   <h4 class="content-title"><%= @article.title%></h4>
+                   
+                   
+                   <div class = "admin_filter_bar well">
+                     <div class="row" >
+                      <div class = "col-md-6">
+                      <strong>Compare with: </strong> 
+                    </div>
+                     <div class = "col-md-6">
+                      <button id = "diff" class = "btn btn-primary btn-sm pull-right" >Diff</button>
+                    </div>
+                    </div>
+
+                   </div>
+                   <div class = "diff_info_holder">
+                    <ul>
+                      <%VersionUtilities.generate_diff(Article.find(1).get_flat_version, Article.find(28).get_flat_version).each do |diff_line|%>
+                      <% if diff_line.starts_with?("-")%>
+                          <li class="bg-warning"><%= diff_line %></tr>
+                           <br>
+                       <% elsif diff_line.starts_with?("+") %>
+                        <br>
+                          <li class="bg-success"><%= diff_line %></tr>
+                      <%end%>
+                     
+
+                      <%end%>
+                    </ul>
+                   </div>
+
+                   <div class = "version_diff_main_container">
+                    <div class = "row" style = "margin-left: 0px; margin-right: 0px;">
+                      <div class = "single_version_holder col-md-6">
+                        <article>
+                          <h3> <%= @article.title%> </h3>
+                          <% @article.segments.each do |segment|%>
+                            <h4><%= segment.title%></h4>
+                            
+                              <% segment.contents.each do |content|%>
+                              <p style = "padding: 5px; font-size: 12px;">
+                                 <%= content.content_body%>
+                              </p>
+                              <%end %>
+                            
+                          <% end%>
+                        </article>
+                      
+                      </div>
+                      <div class = "single_version_holder col-md-6">
+                          <article>
+                          <h3> <%= @article.title%> </h3>
+                          <% @article.segments.each do |segment|%>
+                            <h4><%= segment.title%></h4>
+                            
+                              <% segment.contents.each do |content|%>
+                              <p style = "padding: 5px; font-size: 12px;" >
+                                 <%= content.content_body%>
+                              </p>
+                              <%end %>
+                            
+                          <% end%>
+                        </article>
+                      </div>
+                    </div>
+
+                   </div>
+                   
+               </div>
+           </div>
+       </div>
+
+</div>
+  
+  <script type="text/javascript">
+   require('colors')
+    var jsdiff = require('diff');
+
+    var one = 'beep boop';
+    var other = 'beep boob blah';
+
+    var diff = jsdiff.diffChars(one, other);
+
+    diff.forEach(function(part){
+      // green for additions, red for deletions
+      // grey for common parts
+      var color = part.added ? 'green' :
+        part.removed ? 'red' : 'grey';
+      process.stderr.write(part.value[color]);
+    });
+
+    console.log()
+
+  </script>

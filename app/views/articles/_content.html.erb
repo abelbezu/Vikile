@@ -1,0 +1,44 @@
+<%= segment_form.fields_for :contents do |step_content|%>
+ <%= step_content.hidden_field(:position, :value => "") %>
+ <div class = "ca_part_content_container">
+  <div class = "ca_part_content ">
+    <div class = "part_number_label">1</div>
+    <div class = "ca_part_content_body"> 
+      <%= step_content.text_area :content_body, :class => "an_content_input_text_area form-control", :rows => '8'  %>
+
+    </div>
+    <div id = "an_content_input_footer" class="hidden panel-footer content_input_footer">
+      <div style ="height: 30px;" id = "reveal_description_button" class = "content_input_footer_button topic_button topic_create_split_left col-xs-12 col-md-6">
+       <span class = "glyphicon glyphicon-plus"> </span> Add Picture
+     </div>
+
+     <submit id = "submit_topic_button"style ="height: 30px;" class = "topic_button topic_create_split_right col-xs-12 col-md-6">
+      <span class = "glyphicon glyphicon-trash"> </span> Remove
+    </submit>
+    <div style = "clear:both">
+    </div>
+  </div>
+</div>
+
+</div>
+<script type="text/javascript">
+
+  
+  action = function(element){
+    $(element).find(".content_input_footer").removeClass("hidden");
+    ta = $(element).find("textarea")
+     CKEDITOR.replace(ta[0]);
+  }
+  reverse = function(element){
+    $(element).find(".content_input_footer").addClass("hidden");
+    for(name in CKEDITOR.instances)
+    {
+        CKEDITOR.instances[name].destroy()
+    }
+  }
+
+  x = $(".ca_part_content");
+  var tti = new TransformableInput(x, action, reverse);
+
+</script>
+<%end%>

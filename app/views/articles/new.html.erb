@@ -1,220 +1,146 @@
+ <div class = "page" name = "new_article" style = "margin-top: 90px;">
+  <div class = 'container article_content '>
+    <div class = "col-md-8 col-xs-12 create_article_container">
+     <div class = "panel panel-default create_article_panel">
+      <h2><div style = "float: left; margin-left: 15px; font-weight: 700">Edit </div></h2>
+      
+   
+      <div style = "clear:both"></div>
+    </div>
+    <%= nested_form_for @article do |f| %>
 
-	<div class = 'container article_content'>
-		<div class = "col-md-8 col-xs-12">
-			<div class="panel panel-default">
-				<div class="panel-body global_bold_description_wrapper">
-					<h2> Basic panel example </h2>
-				</div>
-			</div>
-			<form accept-charset="UTF-8" action="create" class="new_article" id="new_article" method="post">
-				<div class="panel panel-default articles_new_panel_heading">
-					<div class="panel-heading">
-						<h2 class="panel-title">Panel title</h2>
-					</div>
+   
+    <%= f.hidden_field(:segment_type, value: "parts") %>
 
-					<input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value=<%=  form_authenticity_token %>>
-					<div class="panel-body">
-						<div class = "col-md-10 col-xs-12">
-							Enter your article's title below and click on Submit.
-							<br> 
-							Be sure to phrase it in the form of a "how-to" (e.g. How to Walk a Dog)
-							<div class="form-group">
-								<label>How To</label>
+    <%= f.label :title, "Title: "%>
+    <%= f.text_field :title, :class => " form-control" %>
+    <div style = "margin-top: 50px">
 
-								<input id="article_title" name="article[title]" type="text" class = "form-control">
-							</div>
-						</div>          
-					</div>
-				</div>
-				<div class="panel panel-default articles_new_panel_heading">
-					<div class="panel-heading ">
-						<h2 class="panel-title">Panel title</h2>
-					</div>
-					<div  class = "articles_new_content_wrapper">
-						<div class="panel-body">
-							<textarea id="article_introduction" name="article[introduction]" type="text" class ="form-control" rows = '3'></textarea>
+    </div>
+    <%= f.label :category, "Category: "%> &nbsp; &nbsp;
+    <%= f.select :category, options_for_select(["Entertainment", "Sports", "Technology", "Health", "Education","Turkish Culture", "Relationships", "Personal", "Business"], disabled: "Super Platinum") %>
+    <div style = "margin-top: 50px">
 
-						</div>
-					</div>
-				</div>
-				<div id ="an_main_content_methods_wrapper">
-					<div id = "an_main_content_method" class="panel panel-default articles_new_panel_heading">
-						<div class="panel-heading ">
-							<h2 class="panel-title">
-								<div id="method_selector">
-									This article has: 
-									<input type="radio"  name="article[part_format]" id = "an_methods" value="methods"> Multiple Methods <a id="methods"></a>
-									<input type="radio" name="article[part_format]" id = "an_parts" value="parts"> Multiple Parts <a id ="parts"></a>
-									<input type="radio" name="article[part_format]" id = "an_neither" value="neither" checked="checked"> Neither <a class="neither"></a>
-								</div>
-							</h2>
-						</div>
-						<div id = 'an_method_container_panel' class = ''>
-							<div id = 'an_content_wrapper_0' class = "articles_new_content_wrapper">
-								<div id = 'an_method_wrapper_0' class = 'global_hidden'>
-									<div class = "global_bold_description_wrapper">
-										<h4>
-											<span class = "an_method_text" id = "an_method_txt" style = 'margin-left: 5px;'>Method</span>&nbsp;<span id = "an_method_position_0">1</span> of <span class = 'an_method_count'>1</span>
-											<input class= 'an_part_position'name= "article[parts_attributes][0][part_position]" type="hidden" value="">
-										</h4>
-									</div>
-									<div class="form-group">
+    </div>
+    <%= f.fields_for :segments do |segment_form| %>
+    <%= segment_form.label :title, "Title of this part: "%>
+    <%= segment_form.link_to_remove "", :class => "glyphicon glyphicon-remove pull-right" %>
+
+    <%= segment_form.hidden_field(:position, :value => "") %>
+    <%= segment_form.text_field(:title, :class => "form-control") %>
+
+    <%= segment_form.fields_for :contents do |step_content|%>
+    <%= step_content.hidden_field(:position, :value => "") %>
+    <%= step_content.fields_for :image do |image|%>
+    <%= image.file_field :picture, :class => "add_pic_btn", :style => "float: left; margin-left: 20%;" %>
+    <% end %>
+    <div style = "margin-top: 100px">
+
+    </div>
+    <div class = "image_display_box hidden" style = "height: 500px; width: 80%; margin-left: 20%; margin-bottom: 0px; margin-top: 20px">
+
+    
+    </div>
+    <div style = "margin-top: 20px">
+
+    </div>
+    <%= step_content.text_area :content_body, :class => "form-control an_add_rich_text ", :rows => '10', :style => "width: 80%; margin-left: 20%;" %>
+    <%= step_content.link_to_add "add picture to this step", :image, :class => "add_pic_link", :style => "margin-left: 20%; margin-top: 20px" %>            
+    <%= step_content.link_to_remove "remove this step", :class => "pull-right" %>
+    <% end %>
+
+    <%= segment_form.link_to_add "add a step", :contents, :class => "pull-right articles_new_button btn btn-default", :style => "width: 80%; margin-left: 20%;" %>
 
 
-										<input id="an_method_title_0" name="article[parts_attributes][0][part_title]" type="text" class ="form-control">
-									</div>
-								</div>
-								<div class = "global_bold_description_wrapper">
-									<h4>
-										Steps
+    <% end %>
+    
+    <%= f.link_to_add "Add Method", :segments, :class => "pull-right btn btn-default"%>
 
-									</h4>
-									Enter each step of your article here. Press "Add Step" after each individual step.
-								</div>
-								<div id ="an_methods_wrapper_0">
-									<div id ="an_steps_wrapper_0">
-										<div  id = "an_main_input_wrapper_0_0">
-											<div id = "an_main_input_0_0" class = "articles_new_main_input">
-												<div class = "articles_new_main_input_left">
-													<div class="global_bold_description_wrapper">
-														<h2><span id = "an_step_number_0_0"> 1</span> </h2>
-													</div>
-												</div>
-												<div class = "articles_new_main_input_right">
-													<div class = "articles_new_bullets_button_wrapper">
-														<button type="button" stepposition = '0' id = "an_bullets_button_0_0"class="btn btn-default">1</button>
-													</div>
+    <div style = "width: 100%; height: 100px;">
 
-													<div style = " margin-top: 10px;">
-
-														<textarea id="an_main_input_text_area_0_0" name="article[parts_attributes][0][contents_attributes][0][content_body]" type="text" class ="form-control" rows = '3'></textarea>
-														
-								   		
-													</div>
+    </div>
 
 
-												</div>
-											</div>
-											<div style="clear: both;"></div> 
-										</div>
-									</div>
-								</div>
-								<div style = " margin-top: 10px;">
-									<button type="button" id = "an_add_step_button" methodPosition = '0' class="an_add_step_button articles_new_button btn btn-default">Add Step</button>
-								</div>
-								<div style="clear: both;"></div> 
-							</div>
-						</div>
-					</div>
-					<div id = 'an_added_method_container_panel' class="global_hidden">
-						
-					</div>
-				</div>
-				<div id = "an_add_method_panel" class="global_hidden panel panel-default">
-					<div  class = "articles_new_content_wrapper" style = "height: 30px;">
-						<div class = "articles_new_add_section_left">
-							Do you have another method for Use Bootstrap in Rails? 
-						</div>
-						<div class = "articles_new_add_section_right">
-							<button type="button" id = 'an_add_method_button' class="articles_new_button btn btn-default">Add <span id = "an_add_method_btn_txt">Method</span></button>
-							<div style="clear: both;"></div> 
-						</div>
+    <%= f.fields_for :tips do |article_tip|%>
+
+    <%= article_tip.hidden_field :tip_position, :value => "" %>
+    <%= article_tip.fields_for :contents do |tip_contents| %>
+    <div style = "margin-top: 50px">
+
+    </div>
+    <%= tip_contents.text_area :content_body, :class => "form-control", :rows => "3" %>
+    <% end %>
 
 
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class = "articles_new_content_wrapper">
+    <%= article_tip.link_to_add "Add Tip", :contents, :class => "articles_new_button btn btn-default", :style => "float:right; margin-top: 10px;"  %>
 
-						<div class = "global_bold_description_wrapper">
-							<h4>
-								Tips
+    <% end %>
+    <%= f.fields_for :warnings do |article_warning|%>
+    <%= article_warning.hidden_field :warning_position, :value => "" %>
+    <%= article_warning.fields_for :contents do |warning_contents| %>
+    <div style = "margin-top: 50px">
 
-							</h4>
-							Enter any useful tips here. Press "Add Tip" after each individual tip.
-						</div>
-						<div id = "an_tips_container" class = "articles_new_tips_container">
-							<div id =  'an_tip_wrapper_0' class = "articles_new_tips_text_area" style = "margin-top: 20px;">
-								<textarea id="an_articles_new_tip_0" name="article[tips][0][tip_body]" type="text" class ="form-control" rows = '3'></textarea>
-							</div>
+    </div>
+    <%= warning_contents.text_area :content_body, :class => "form-control", :rows => "3"%>
 
-						</div>
-						<div class = "articles_new_add_section_right">
-							<button style = "float:right; margin-top: 10px;" type="button" class="an_add_tips_button btn btn-default" class ="form-control">Add Tip</button>
+    <% end %>
 
-						</div>
-						<div style = "clear:both"> </div>
 
-					   </div>
-				</div>
+    <%= article_warning.link_to_add "Add Warning", :contents, :class => "articles_new_button btn btn-default", :style => "float:right; margin-top: 10px;" %>
 
-				<div class="panel panel-default">
-					<div class = "articles_new_content_wrapper">
+    <% end %>
+    <div style = "clear:both"></div>
+    <%= f.check_box :status, {:class => "myclass", :style => "mystyle"}, "published", "draft" %>
+    <%= f.label :status, "Publish this article"%> &nbsp; &nbsp;
+    <div class = "panel panel-default submit_discard_btn" >
+      <%= f.submit "Save", :class => "articles_new_button btn btn-default", :style => "width: 20%; margin: 20px auto;"  %>
+      
+      <button type="button" style = "width: 20%; margin: 10px auto;" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Discard</button>
 
-						<div class = "global_bold_description_wrapper">
-							<h4>
-								Warnings
+      <div id = "myModal" class="modal fade bs-example-modal-sm"  tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" style = "width: 40%">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Warning!</h4>
+            </div>
+            <div class="modal-body">
+              <p>All changes will be lost. Are you sure you want to continue? </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <%= link_to("Continue", articles_path(@article), :class =>"btn btn-primary")%>
+            </div>
+          </div><!-- /.modal-content -->
+        </div>
+      </div>
 
-							</h4>
-							Enter any useful tips here. Press "Add Warning" after each individual tip.
-						</div>
-						<div id = "an_warnings_container" class = "articles_new_warnings_container">
-							<div id =  'an_warning_wrapper_0' class = "articles_new_warnings_text_area" style = "margin-top: 20px;">
-								<textarea id="an_articles_new_warning_0" name="article[warnings][0][warning_body]" type="text" class ="form-control" rows = '3'></textarea>
-							</div>
 
-						</div>
-						<div class = "articles_new_add_section_right">
-							<button style = "float:right; margin-top: 10px;" type="button" class="an_add_warnings_button btn btn-default">Add Warning</button>
+      <div style = "clear:both"></div>
+    </div>
+    <%end%>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+   $(document).ready(function(){
+    var urls =(<%= raw @article.pictures_list()%>);
+    var picture_holders = $(".image_display_box");
+    for(i =0; i< picture_holders.size(); i++)
+    {
+      if(urls[i] != '---no-picture---')
+      {
+          img = new Image();
+          img.src = urls[i];
+          
+          img.width = 582;
+          img.height = 500;
+         
+          $(picture_holders[i]).append(img);
+          $(picture_holders[i]).removeClass("hidden");
+          
+      }
+    }
+  });
 
-						</div>
-						<div style = "clear:both"> </div>
-
-					</div>
-				</div>
-				
-				<div class="panel panel-default">
-					<div class = "ariticles_new_add_source_text">
-						<div class = "global_bold_description_wrapper">
-							<h4 class ="cursor_pointer">
-								Add Sources and Citations
-
-							</h4>
-							
-						</div>
-					</div> 
-					<div id = "an_source_main_wrapper" class = "articles_new_content_wrapper global_hidden">
-
-						<div class = "global_bold_description_wrapper">
-							<h4>
-								Sources and Citations
-
-							</h4>
-							Enter sources here. Press "Add Source" after each individual source.
-						</div>
-						<div id = "an_sources_container" class = "articles_new_sources_container">
-							<div id =  'an_source_wrapper_0' class = "articles_new_sources_text_area" style = "margin-top: 20px;">
-								<textarea id="an_articles_new_source_0" name="article[sources][0][source_body]" type="text" class ="form-control" rows = '3'></textarea>
-							</div>
-
-						</div>
-						<div class = "articles_new_add_section_right">
-							<button style = "float:right; margin-top: 10px;" type="button" class="an_add_sources_button btn btn-default">Add Source</button>
-
-						</div>
-						<div style = "clear:both"> </div>
-
-					</div>
-				</div>
-				
-					<div class ="articles_new_submit_button_wrapper">
-						<div class ="an_submit_button_wrapper">
-							<button   type="button" class="an_submit_button btn btn-success">Discard</button>
-							<input class="an_submit_button btn btn-success" name="commit" type="submit" value="Submit">
-						</div>	 
-						
-					</div>
-				
-			</form>
-		</div>
-	</div>
+</script>

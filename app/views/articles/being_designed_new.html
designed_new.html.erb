@@ -1,0 +1,98 @@
+
+<div id="contentarea" style = "margin-top: 100px;" class="content_area container-fluid">
+  <div class="row content_child1">
+    <div class="col-md-2">
+
+    </div>
+<%= nested_form_for @article do |f| %>
+<%= f.hidden_field(:id, :value => @article.id) %>
+<%= f.hidden_field(:segment_type, value: "parts") %>
+    <div class="col-md-6 col-xs-12">
+      <div class = "ca_title_and_category_container">
+        <div class = "article_edits_title_container">
+          <div class = "title_label">TITLE</div>
+          <%= f.text_field :title, :class => "eccentric_green_border form-control" %>
+       
+        </div>
+
+        <div class = "article_edits_categories_container">
+          <div class = "title_label">Categories</div>
+          <div class = "categories_box ">
+            <div class = "row">
+                           <!--  <div class = "category_icon col-md-2 col-xs-4 active_icon offset-0">
+
+                                <img class = "category_icon_image" src="img/tech.png" width = "50" height = "50">
+                                Technology
+                            </div>
+                             <div class = "category_icon col-md-2 col-xs-4 offset-0">
+
+                                <img class = "category_icon_image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/4215-200.png" width = "50" height = "50">
+                                Health
+                            </div>
+                            <div class = "category_icon col-md-2 col-xs-4 offset-0">
+
+                                <img class = "category_icon_image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/65005-200.png" width = "50" height = "50">
+                                Business
+                            </div>
+                              <div class = "category_icon col-md-2 col-xs-4 offset-0">
+
+                                <img class = "category_icon_image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/30979-200.png" width = "50" height = "50">
+                                Technology
+                            </div>
+                            <div class = "category_icon col-md-2 col-xs-4 offset-0">
+
+                                <img class = "category_icon_image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/21006-200.png" width = "50" height = "50">
+                                Managment
+                            </div>
+                              <div class = "category_icon col-md-2 col-xs-4 offset-0">
+
+                                <img class = "category_icon_image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/74647-200.png" width = "50" height = "50">
+                                Food
+                            </div>
+                              <div class = "category_icon col-md-2 col-xs-4 offset-0">
+
+                                <img class = "category_icon_image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/16087-200.png" width = "50" height = "50">
+                                Pac Man
+                            </div>
+                            <div class = "category_icon col-md-2 col-xs-4 offset-0">
+
+                                <img class = "category_icon_image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/61717-200.png" width = "50" height = "50">
+                                Sports
+                            </div>
+                             <div class = "category_icon col-md-2 col-xs-4 offset-0">
+
+                                <img class = "category_icon_image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/137857-200.png" width = "50" height = "50">
+                                Books
+                            </div>
+                            <div class = "category_icon col-md-2 col-xs-4 offset-0">
+
+                                <img class = "category_icon_image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/26155-200.png" width = "50" height = "50">
+                                Turkey
+                            </div>
+                              
+                              <div class = "category_icon col-md-2 col-xs-4 offset-0">
+
+                                <img class = "category_icon_image" src="https://d30y9cdsu7xlg0.cloudfront.net/png/1014-200.png" width = "50" height = "50">
+                                Relationship
+                              </div> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    <%= render partial: "articles/part", locals: {f: f}%>
+    <%= f.link_to_add "Add Method", :segments, :class => "pull-right btn btn-default", :data => {:target =>"#parts_container_main"}%>
+    </div>
+    </div>
+  </div>
+
+<%end%> 
+
+
+
+
+
+
+
+
+

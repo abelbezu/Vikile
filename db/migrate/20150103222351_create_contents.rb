@@ -5,10 +5,8 @@ class CreateContents < ActiveRecord::Migration
       t.string "content_owner_type"
       t.string "content_type"
       t.text "content_body"
-      t.text "content_bullet_list"
-     
-      t.text "picture"
-      t.string "video"
+      t.string "image_url" 
+      
 
       t.timestamps
     end

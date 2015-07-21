@@ -1,97 +1,119 @@
-
+<div class = "col-md-10">
 <script type="text/javascript" charset="utf8" src="/DataTables-1.10.4/media/js/jquery.dataTables.js"></script>
 
-<script type="text/javascript">
-$(document).ready( function () {
-	$('#articles_table').DataTable();
-} );
-</script>
+<div class="tab-content">
+  <div class="tab-pane active" id="inbox">
+      
+      <div class="row">
+           <div class="content-container clearfix">
+               <div class="col-md-12">
+                   <h1 class="content-title">All Articles</h1>
+                   
+                   <input type="search" placeholder="Search Articles" class="form-control admin-article-search" />
+                   <div class = "admin_filter_bar well">
+                      <div class = "row">
+                        <div class = "col-md-2">
+                        <strong> Filter By: </strong>
+                        </div>
+                        <div class = "col-md-2">
+                          Author: 
+                            <input type = "text" class = "form-control">
+                        </div>
+                        <div class = "col-md-2">
+                          Date: 
+                          <div class='input-group date' id='datetimepicker1'>
+                              <input type='text' class="form-control" />
+                              <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-calendar"></span>
+                              </span>
+                          </div>
+                        </div>
+                        <div class = "col-md-2">
+                          Status
 
-<div class = "admin_index_main">
-	<div class = "container">
-		<div class = "row"> 
-			<div class = 'col-lg-2'>
-				<ul class="nav nav-pills nav-stacked">
-					<li role="presentation"><%= link_to("Home", {:action => 'index'},)%>
-						<li role="presentation" class="active"><%= link_to("Articles", {:action => 'articles'},)%></li>
-						<li role="presentation"><%= link_to("Accounts", {:action => 'accounts'},)%></li>
-						<li role="presentation"><%= link_to("Images", {:action => 'images'},)%></li>
-						<li role="presentation"><%= link_to("Stats", {:action => 'stats'},)%></li>
-					</ul>
+                        </div>
+                        <div class = "col-md-2">
+                        </div>
+                        <div class = "col-md-2">
+                        </div>
+                      </div>
 
-				</div>
-				<div class = 'col-lg-10'>
-					<div class = "row">
-						<div class = "col-lg-12"> 
-							<div class = "row">
-								<div class = "col-lg-3">
+                   </div>
+                   <ul class="admin-article-list">
+                   	<% Article.all.each do |article|%>
+                       <li>
+                           <a href="">
+                               <span class="admin-article-sender"><%= article.title%></span>
+                               
+                           </a>
+                           <div class = "well article_summary">
+                            <div class = "row">
+                            <div class = "col-md-4">
+                             <strong> Author </strong>: <%= article.get_author.first_name + " " + article.get_author.last_name%>
+                             <br>
+                             <strong> Status </strong>: <%= article.status%>
+                             <br>
+                             <strong> Created On </strong>: <%= article.created_at%>
+                             <br>
+                             <strong> Updated On </strong>: <%= article.updated_at%>
+                             <br>
+                             <strong> Versions </strong>: <%= article.versions.count%>
+                             </div>
+                             <div class = "col-md-4">
+                              Compare Versions
+                             </div>
+                             <div class = "action_icons col-md-4">
+                              <div class = "row">
+                                <div class = "col-md-1">
+                                  <span style = "color: green;" class = "glyphicon glyphicon-home">
+                                  </span>
+                                </div>
+                                <div class = "col-md-1">
+                                  <span class = "action_icon glyphicon glyphicon-pencil">
+                                  </span>
+                                  
+                                </div>
+                                <div class = "col-md-1">
+                                  <span class = "action_icon glyphicon glyphicon-eye-close">
+                                  </span>
+                                </div>
+                                <div class = "col-md-1">
+                                   <span class = "action_icon glyphicon glyphicon-usd">
+                                  </span>
+                                </div>
+                                <div class = "col-md-1">
+                                </div>
+                                <div class = "col-md-1">
+                                </div>
+                                <div class = "col-md-1">
+                                </div>
+                                  <div class = "col-md-1">
+                                </div>
+                                <div class = "col-md-1">
+                                </div>
+                                <div class = "col-md-1">
+                                </div>
+                                <div class = "col-md-1">
+                                   <span style = "color: red;" class = "action_icon glyphicon glyphicon-trash">
+                                  </span>
+                                </div>
+                                <div class = "col-md-1">
 
-									<label><h4><span class="label label-default">Records From</span></h4></label>
-
-									<select>
-										<option>Today</option>
-										<option>This Week</option>
-										<option>This Month</option>
-										<option>This Year</option>
-
-									</select>
-								</div>
-
-								<div class = "col-lg-3">
-									<label><h4><span class="label label-default">Sort By</span></h4></label>
-
-									<select>
-										<option>Today</option>
-										<option>This Week</option>
-										<option>This Month</option>
-										<option>This Year</option>
-
-									</select>
-								</div>
-								<div class = "col-lg-3">
-									<label><h4><span class="label label-default">Order</span></h4></label>
-
-									<select>
-										<option>Ascending</option>
-										<option>Descending</option>
-
-
-									</select>
-								</div>
-								<div class = "col-lg-3">
-
-								</div>
-							</div>
-
-						</div>
-
-						<div class = "admin_main_content col-lg-12">
-							<table id = "articles_table" class="table table-bordered">
-								<thead>
-									<tr>
-										<th>Id</th>
-										<th>Title</th>
-										<th>Created By</th>
-										<th>Edited By</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">1</th>
-										<td>Mark</td>
-										<td>Otto</td>
-										<td>@mdo</td>
-										<td>Otto</td>
-										
-									</tr>
-									
-								</tbody>
-							</table>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                </div>
+                                
+                               
+                               </div>
+                             </div>
+                           </div>
+                       </li>
+                    <%end%>
+                      
+                   </ul>
+               </div>
+           </div>
+       </div>
+      
+  </div>
+</div>
+</div>
+	

@@ -1,0 +1,122 @@
+<style type="text/css">
+
+</style>
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-custom " role="navigation" >
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" id="phone_toggle" data-toggle="collapse" data-target="#navbar_collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<%= image_tag "vikilelogo2.png", :alt => "vikile logo", :width => "80px" %>
+			<%= image_tag "vikile.png", :alt => "vikile logo", :width => "115px" %>
+			
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbar_collapse" >
+			<ul class="nav navbar-nav searchbar_nav">
+				<li>
+						
+					<form class="navbar-form search_form navbar_search" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control search_input" placeholder="Nasil Yapilir " name="search_bar"> 
+							<div class="input-group-btn">
+								<button class="btn btn-default search_button" type="submit"><%= image_tag "search_logo.png", :alt => "vikile logo", :width => "32px" %></button>
+							</div>
+						</div>
+					</form>
+				</li>	
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right text-center" id="nav_links">
+
+						<li><%= link_to("Anasayfa", articles_path, :class=> "left_nav_button")%></li>
+						<li class="btn-group" role="group">
+							<a type="button" class="left_nav_button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Tebliğ
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class = "notification_link" href="#"><strong> Admin</strong>
+									<br>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse 
+									<br>
+									viverra laoreet lorem sit amet luctus.
+								 </a>
+								</li>
+								<li><a class = "notification_link" href="#"><strong> Admin</strong>
+									<br>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse 
+									<br>
+									viverra laoreet lorem sit amet luctus.
+								 </a>
+								</li>
+
+								
+							</ul>
+						</li>
+						<li><%= link_to("Profil", articles_path)%></li>
+						<li><%= link_to("Create", {:controller => "articles", :action =>"new"}, :class => "")%></li>
+						<li class=" dropdown">
+
+							<%= link_to("Categories", articles_path, :class => "data-toggle" , "data-toggle" => "dropdown")%>
+
+							<ul class="dropdown-menu categories_dropdown" aria-labelledby="dropdownMenu1">
+								<li>
+									<div class="categories_div">
+										<div class="row" style="width: 702px; padding: 10px">
+											<ul class="list-unstyled col-md-2">
+												<li class="text-center"><a href="#"><%= image_tag "technology.png", :alt => "Technology", :class => "categories_img" %>Technology</a></li>
+												<li class="text-center"><a href="#"><%= image_tag "entertainment.png", :alt => "Entertainment" ,:class => "categories_img" %>Entertainment</a></li>
+											</ul>	
+											<ul class="list-unstyled col-md-2">
+												<li class="text-center"><a href="#"><%= image_tag "health.png", :alt => "Health" ,:class => "categories_img" %>Health</a></li>
+												<li class="text-center"><a href="#"><%= image_tag "sports.png", :alt => "vikile logo",:class => "categories_img" %>Sports</a></li>
+											</ul>
+											<ul class="list-unstyled col-md-2">
+												<li class="text-center"><a href="#"><%= image_tag "business.png", :alt => "vikile logo" ,:class => "categories_img" %>Business</a></li>
+												<li class="text-center"><a href="#"><%= image_tag "education.png", :alt => "vikile logo" ,:class => "categories_img" %>Education</a></li>
+											</ul>
+											<ul class="list-unstyled col-md-2">
+												<li class="text-center"><a href="#"><%= image_tag "economy.png", :alt => "vikile logo", :class => "categories_img" %>Economy</a></li>
+												<li class="text-center"> <a href="#"><%= image_tag "turkish_culture.png", :alt => "vikile logo", :class => "categories_img" %>Turkish Culture</a></li>
+											</ul>
+											<ul class="list-unstyled col-md-2">
+												<li class="text-center"><a href="#"><%= image_tag "food.png", :alt => "vikile logo", :class => "categories_img" %>Food</a></li>
+												<li class="text-center"><a href="#"><%= image_tag "relationships.png", :alt => "vikile logo", :class => "categories_img" %>Relationships</a></li>
+											</ul>
+											<ul class="list-unstyled col-md-2">
+												<li class="text-center"><a href="#"><%= image_tag "chair.png", :alt => "vikile logo", :class => "categories_img" %></a></li>
+											</ul>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<% if account_signed_in? %>						
+						<li><%= link_to("Logout", destroy_account_session_path, :method => :delete)%></li>
+						<%else%>
+						<li>
+							<%= link_to("Log In", new_account_session_path)%></li>
+							<li><%= link_to("Sign Up", new_account_registration_path, :class => "right_nav_button")%></li>
+							<!-- end navbar right -->
+						</ul>
+						<button type="button" class="navbar-toggle collapsed navbar-nav nav navbar-right " data-toggle="collapse" id="right_toggle" data-target="#navbar_collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					    <% end %>
+
+
+
+
+				</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+</nav>

@@ -12,8 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery_nested_form
 //= require turbolinks
+//= require ckeditor/init
+//= require bootstrap.min
+//= require improved
+//= require moment
+//= require transformable
+//= require bootstrap-datetimepicker
 //= require bootstrap-sprockets
-//= require custom
-//= require_tree .
+//= require request_drawingscript
+//= require jquery_nested_form
+
+
+//= requre ckjquery

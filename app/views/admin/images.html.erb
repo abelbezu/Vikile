@@ -9,6 +9,9 @@
 			<li role="presentation"><%= link_to("Accounts", {:action => 'accounts'})%></li>
 			<li role="presentation"  class="active"><%= link_to("Images", {:action => 'images'})%></li>
 			<li role="presentation"><%= link_to("Stats", {:action => 'stats'})%></li>
+			<% if current_account.is_super %>
+				<li role="presentation"><%= link_to("Add Admin", {:action => 'create_admin'},)%></li>
+			<%end%>
   		</ul>
   		
 

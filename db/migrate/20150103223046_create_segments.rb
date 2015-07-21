@@ -3,8 +3,9 @@ class CreateSegments < ActiveRecord::Migration
     create_table :segments do |t|
     t.integer "article_id"
     t.string "type"
+    t.string "title"
     t.integer "position"
-      t.timestamps
+    t.timestamps
     end
     add_index('segments', "article_id")
   end

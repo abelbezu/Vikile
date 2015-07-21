@@ -1,0 +1,25 @@
+ <div class = "page" name = "new_article">
+  <div class = 'container article_content '>
+    <div class = "col-md-8 col-xs-12 create_article_container">
+     <div class = "panel panel-default create_article_panel">
+      <h2><div style = "margin-left: 15px; font-weight: 700">Search Results </div></h2>
+      <div class="article_info_wrapper" style = "margin-top: -10px; margin-left:10px;">
+        
+      </div>
+      <div style = "clear:both"></div>
+    </div>
+    
+    <%if @articles.count == 0%>
+      <div class="alert alert-danger" role="alert">No articles found</div>
+    <%else%>
+
+    <% @articles.each do |article| %>
+
+        <%= render(:partial => "article_box", :locals =>{:article => article})%>
+
+    <%end%>
+    <%end%>
+   
+  </div>
+</div>
+</div>

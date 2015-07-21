@@ -1,0 +1,139 @@
+
+
+ <div class = "page" name = "new_article">
+  <div class = 'container article_content '>
+    <div class = "col-md-10 col-md-offset-1 col-xs-12 create_article_container">
+     <!--  <div class="panel panel-default create_rticle_title">
+        <div class="panel-body">
+          <div class="panel_heading">
+            heading here
+          </div>
+          <div class="categories_div">
+            Categories go here
+          </div>
+        </div>
+      </div>  -->
+         <!-- <div class = "panel panel-default create_article_panel">
+     
+      
+    </div> -->
+      
+<div class="panel create_article_panel">
+  <div class="panel-body">
+ <%= nested_form_for @article, :method => "post", :multipart => true do |f| %>
+   <%= f.hidden_field(:segment_type, value: "parts") %>
+      <%= f.label :title, "Konu Yaziniz", :class=> "topic_title text_title"%>
+  <%= f.text_field :title, :class => " form-control" %>
+
+  <%= f.label :title, "Kategori", :class=> "category_title text_title"%>
+  <%= f.text_field :title, :class => " form-control" %>
+
+
+<%= f.fields_for :segments do |segment_form| %>
+        <div style = "margin-top: 100px">
+
+        </div>
+        <div id="article_content_div">
+        <div class="panel article_content_panel" id = "article_content_panel">
+  <div class="panel-body">
+        <%= segment_form.label :title, "Title of this part: ", :class => "text_title"%>
+        <%= segment_form.link_to_remove "this step has no title", :class => "pull-right" %>
+        
+        <%= segment_form.hidden_field(:position, :value => "") %>
+ <%= segment_form.text_field(:title, :class => "form-control") %>
+
+        <%= segment_form.fields_for :contents do |step_content|%>
+        <%= step_content.hidden_field(:position, :value => "") %>
+        <%= step_content.fields_for :image do |image|%>
+       <!--  <%= image.file_field :picture, :class => "add_pic_btn"%> -->
+<% end %>
+        <div style = "margin-top: 100px">
+
+        </div>
+        <div class = "image_display_box hidden" >
+
+        </div>
+        <div class="method_number text-center"> <p> 1 </p> </div>
+ <%= step_content.text_area :content_body, :class => "form-control an_add_rich_text method_text", :rows => '10' %>
+         <!--  <%= step_content.link_to_add "add picture to this step", :image, :class => "add_pic_link" %>  -->           
+          <%= step_content.link_to_remove "", :class => "pull-left glyphicon glyphicon-remove remove_step_btn" %>
+        <% end %>
+        
+  <%= segment_form.link_to_add "", :contents, :class => "pull-right btn btn-default glyphicon glyphicon-plus add_step_btn" %> 
+
+       
+<% end %>
+ <%= f.link_to_add " Add Method", :segments, :class => "pull-right btn btn-default glyphicon glyphicon-plus add_method_btn", :data => {:target => "#article_content_div"}%>
+
+<div style = "width: 100%; height: 100px;">
+
+ </div>
+ 
+</div>
+</div>
+</div>
+ <%= f.fields_for :tips do |article_tip|%>
+        
+        <%= article_tip.hidden_field :tip_position, :value => "" %>
+        <%= article_tip.fields_for :contents do |tip_contents| %>
+        <div style = "margin-top: 50px">
+
+        </div>
+        <%= tip_contents.text_area :content_body, :class => "form-control", :rows => "3" %>
+<% end %>
+
+
+        <%= article_tip.link_to_add "Add Tip", :contents, :class => "articles_new_button btn btn-default add_tip_btn"  %>
+  
+        <% end %>
+        <%= f.fields_for :warnings do |article_warning|%>
+  <%= article_warning.hidden_field :warning_position, :value => "" %>
+        <%= article_warning.fields_for :contents do |warning_contents| %>
+        <div style = "margin-top: 50px">
+
+        </div>
+        <%= warning_contents.text_area :content_body, :class => "form-control", :rows => "3"%>
+
+        <% end %>
+
+
+        <%= article_warning.link_to_add "Add Warning", :contents, :class => "articles_new_button btn btn-default add_warning_btn" %>
+        
+   <% end %>
+   <div style = "clear:both"></div>
+   <div class = "panel panel-default submit_discard_btn">
+    <div class="panel-body">
+    <button type="button" style = " margin: 10px auto;" class="btn btn-danger discard_button" data-toggle="modal" data-target=".bs-example-modal-sm">Discard</button>
+    <%= f.submit "Submit", :class => "articles_new_button btn btn-default" %>
+    
+
+    <div id = "myModal" class="modal fade bs-example-modal-sm"  tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" style = "width: 40%">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Warning!</h4>
+          </div>
+          <div class="modal-body">
+            <p>All changes will be lost. Are you sure you want to continue? </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <%= link_to("Continue", articles_path, :class =>"btn btn-primary")%>
+          </div>
+        </div><!-- /.modal-phicocontent -->
+      </div>
+    </div>
+            
+
+            <div style = "clear:both"></div>
+          </div>
+        </div>
+        <%end%>
+      </div>
+    </div>
+      </div><!-- end article content panel -->
+      </div> <!-- end create article panel -->
+  </div><!-- end create article column -->
+  </div>
+</div>

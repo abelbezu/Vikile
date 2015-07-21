@@ -1,11 +1,40 @@
 Rails.application.routes.draw do
 
-  resources :articles, only: [:index, :new]
-  root "articles#show"
-  match '/:controller(/:action(/:id))', :via => [:get, :post]
+  devise_for :accounts
+  mount Ckeditor::Engine => '/ckeditor'
+  
+
+  
+  resources :articles do 
+   
+  end
+
+
+  match '/search_results' => 'articles#search_results', :via => [:get]
+
+
+  # match '/:controller(/:action(/:id))', :via => [:get, :post, :patch]
+  
+  get 'profile', to: 'accounts#index' 
+ 
+  
+  root "articles#index"
+
   match 'auth/:provider/callback', to: 'sessions#create', :via => [:get, :post]
   match 'auth/failure', to: redirect('/') , :via => [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout' , :via => [:get, :post]
+  match '/articles/edit_admin/:id', :action => 'edit_admin', :via => [:get], :controller => 'articles'
+  match '/admin/articles', :action => 'articles', :via => [:get], :controller => 'admin'
+  match '/admin', :action => 'index', :via => [:get], :controller => 'admin'
+  match '/admin/accounts', :action => 'accounts', :via => [:get], :controller => 'admin'
+  match '/admin/stats', :action => 'stats', :via => [:get], :controller => 'admin'
+  match '/admin/create_admin', :action => 'create_admin', :via => [:get], :controller => 'admin'
+  match '/admin/images', :action => 'images', :via => [:get], :controller => 'admin'
+  match '/admin/stats_redirects', :action => 'stats_redirects', :via => [:get], :controller => 'admin'
+  match '/admin/stats_users', :action => 'stats_users', :via => [:get], :controller => 'admin'
+  match '/admin/stats_articles', :action => 'stats_articles', :via => [:get], :controller => 'admin'
+  match '/admin/version_diff/:id', :action => 'version_diff', :via => [:get], :controller => 'admin'
+  match '/admin/admin_edit/:id', :action => 'admin_edit', :via => [:get], :controller => 'admin'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

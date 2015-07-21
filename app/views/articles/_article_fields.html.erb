@@ -1,0 +1,35 @@
+<div class = "col-xs-12 col-sm-4 col-lg-3 col-md-6 tutorial">
+    <div class="article_panel panel panel-default">
+        <div class="panel-body panel_top">
+           
+             <%= image_tag('article_thumb.png', :alt => "Article Picture", :class => "article_picture")%>
+        </div>
+        <div class="panel-body panel_info_underneath">
+            <div class = "title">
+                <a href="articles_main.html" ><%= link_to(truncate(article.title, length: 30), {:controller => "articles", :action =>"show", :id  => article.id })%></a>
+            </div>
+            <div class = "article_underneath_info">
+                <div class = "fb_icon info_item ">
+                    <%= image_tag('facebook2green.png', :alt => "Share Icon", :class => "share_icon")%>
+                    <p class = "shares_count">
+                        52
+                    </p>
+                </div>
+                <div class = "twitter_icon info_item">
+                    <%= image_tag('twittergreen.png', :alt => "Share Icon", :class => "share_icon")%>
+                    <p class = "shares_text">
+                        47
+                    </p>
+                </div>
+                <div class = "view_icon info_item last_info_item">
+                    <%= image_tag('eyeviewsgreen.png', :alt => "Share Icon", :class => "share_icon")%>
+                    <p class = "shares_text">
+                        81
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</div>

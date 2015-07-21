@@ -3,83 +3,143 @@ class ArticlesController < ApplicationController
 
 	layout "main"
 	
-	before_action :confirm_logged_in, :except => [:show, :about, :index]
+	 before_action :authenticate_account!, :except => [:show, :about, :index, :update]
+	# before_action :confirm_super_admin, :only => [:edit_admin]
 
 	def index
-		@article = Article.find(5)
-		session[:return_to] = {:controller => 'articles', :action => 'index'}
+		@page_title = "Home"
+		
 	end
 	
-	def new
-		session[:return_to] = {:controller => 'articles', :action => 'new'}
+	def test
+		@articles_new = true	
 
 	end
 
 
 
 	def show
-		
-		session[:return_to] = {:controller => 'articles', :action => 'show'}
+		if params[:random]
+			@article = Article.all(:order => "RANDOM()")
+			@page_title = @article.title
+			
+		elsif params[:id]
+			@article = Article.find(params[:id])	
+		else
+			@article = Article.find(1)
+			@page_title = @article.title		
+		end
+
 	end
+
+
+	def edit
+		
+		if params[:id]
+			unless Article.find(params[:id]).is_editable
+				@article = Article.find(params[:id]).find_version_to_edit current_account
+				redirect_to edit_article_path(@article)
+			else
+				@article = Article.find(params[:id])
+			end
+		else
+			@article = Article.find(1).create_editable_version_for current_account
+			
+		end
+		
+
+	end
+	def exp
+		if params[:id]
+			@article = Article.find(params[:id]).deep_copy
+			
+		else
+			@article = Article.find(1)
+			
+		end
+
+
+		
+	end
+
+	def edit_admin
+		if params[:id]
+			@article = Article.find(params[:id])
+			
+		else
+			@article = Article.find(1)
+			
+		end
+
+	end
+
+	def new
+		@article = Article.new
+		@segment = @article.segments.build
+		@step = @segment.contents.build		
+		
+		@tip = @article.tips.build
+		tip_content = @tip.contents.build
+		@warning = @article.warnings.build
+		warning_content = @warning.contents.build
+		
+	end
+
+	def update
+		
+		@article = Article.find(article_params[:id])
+		if @article.update(article_params)
+			redirect_to(:action => "new")
+		else 
+
+			redirect_to(:action => "test")
+		end
+	end
+
+
+	def search_results
+
+		@search = Article.search do
+			fulltext params[:search]
+		end
+
+		@articles = @search.results
+	end
+
+
+
 
 	def about
 
 	end
-	def create
-	    @article = Article.new(:account_id => '1', :title => params[:article][:title], :introduction => params[:article][:introduction] )
-		
-	   
 
-		@tip = @article.parts.build(:part_type => 'tip')
-				
-		params[:article][:tips].each do |tip|
-			@tip.contents.build(:content_body => tip[1][:tip_body])
-		end
-		
-		@warning = @article.parts.build(:part_type => 'warning')
-				
-		params[:article][:warnings].each do |warning|
-			@warning.contents.build(:content_body => warning[1][:warning_body])
-		end
-		
-		@source = @article.parts.build(:part_type => 'source')
-				
-		params[:article][:sources].each do |source|
-			binding.pry
-			@source.contents.build(:content_body => source[1][:source_body])
+	def destroy
+		@article_to_delete = Article.find(params[:id])
+		if @article_to_delete.destroy
+			flash[:notice] = "article destroyed successfully"
+			redirect_to(:controller=> 'admin', :action => "articles")
+		else
+			redirect_to(:controller=> 'admin', :action => "stats_redirects")
 		end
 
-		
-		
-		params[:article][:parts_attributes].each do |x|
-			
-			@parts = @article.parts.build(:part_type => params[:article][:part_format], :part_title => x[1][:part_title])
-			
-			
-			x[1][:contents_attributes].each do |y|
-				
-				@parts.contents.build(:content_body => y[1][:content_body])
-			end 
-		end 
-
-		if @article.save
-  			 			
-  			redirect_to(:action => 'index')
-  			flash[:notice] = "Debate successfully saved"
-  		else 
-  			flash[:notice] = "Couldn't create debate, Please try again"
-  			redirect_to(:action => 'new')
-
-
-  		end
 	end
 
+
+	def create		
+		@article = Article.new(article_params)
+	
+		if @article.save				
+			redirect_to(:action => "new")
+		else 
+			redirect_to(:action => "test")
+		end	
+	end
 	
 
-	# private 
-	# def article_params
-	# 	params.require(:article).permit(:account_id, :title, :introduction, :part_format, :tips, :warnings, :sources, parts_attributes: [:part_title, contents_attributes: [:content_body]])
+	private 
+	def article_params
+		params[:article][:account_id] = current_account.id		
+		params.require(:article).permit(:id, :account_id,  :title, :category, :status, :segment_type, :segments_attributes => [:id, :position, :title,  :_destroy, contents_attributes: [:id, :position, :content_body, :_destroy, image_attributes: [:id, :picture, :_destroy]]], :tips_attributes => [:id, :tip_position, :_destroy, contents_attributes: [:id, :content_body, :_destroy]], :warnings_attributes => [:id, :warning_position, :_destroy, contents_attributes: [:id, :content_body, :_destroy]] )
 		
-
-	# end
+	end
 end

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vikile</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+   <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse  navbar-fixed-top navar_signed_in">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"> <%= image_tag('vikilelogo2.png', :size => '46x120', :alt => "Brand", :class => "brand_image")%> </a>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand header_brand_words" href="#"><%= image_tag('vikile.png', :alt => "Brand", :class => "brand_name")%> </a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar_collapse_element" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar_other_buttons_right">
+
+					</ul>
+					<form class="navbar-form navbar-left navbar_search" role="search">
+						<div class="input-group  navbar_search_group">
+							<input type="text" class="form-control" placeholder="Search">
+
+							<span class = "input-group-btn">
+								<button type="submit" class="btn btn-default" aria-label= "Search">
+									<span class="glyphicon glyphicon-search" ></span>
+								</button> </span>
+						</div>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						
+						
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">John<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li>
+									 <a href="#"> <i class="fa fa-check-square headbar_notification_icon" style="color:green;" alt="notification icon"></i>
+									<p>Approved Article</p></a>
+								</li>
+								<li>
+									 <a href="#"> <i class="fa fa-certificate headbar_notification_icon" style="color:#2980b9;" alt="notification icon"></i>
+									<p>New Article</p></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-bell headbar_notification_icon" style="color:orange;" alt="notification icon"></i><p>Something else here</p></a>
+								</li>
+								<li class="divider customized_divider"></li>
+								<li>
+									<a href="#"><span class="glyphicon glyphicon-user headbar_notification_icon" style="color:grey;" alt="notification icon"></span><p>Profile</p></a>
+								</li>
+							</ul>
+						</li>
+							<li>
+							<a href="#">Log Out</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-google fa-lg"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+	</nav>
+
+
+	   <%= yield %>
+
+	</div>
+<footer id="FOOTER_1">
+	<div id="DIV_2">
+		<ul id="UL_3">
+			<li id="LI_4">
+				<a href="http://bootstrap.cmsmadesimple-themes.com/bootstrap-gallery-template/gallery-carousel.html" id="A_5">Gallery template</a>
+			</li>
+			<li id="LI_6">
+				<a href="http://bootstrap.cmsmadesimple-themes.com/bootstrap-news.html" id="A_7">News template</a>
+			</li>
+			<li id="LI_8">
+				<a href="http://bootstrap.cmsmadesimple-themes.com/list-anything/thumbnails-grid.html" id="A_9">List anything</a>
+			</li>
+			<li id="LI_10">
+				<a href="http://bootstrap.cmsmadesimple-themes.com/formbuilder.html" id="A_11">Formbuilder</a>
+			</li>
+			<li id="LI_12">
+				<a href="https://sellfy.com/p/Q4TM/" id="A_13">BUY NOW!</a>
+			</li>
+		</ul><hr id="HR_14" />
+		<p id="P_15">
+			Theme by <a href="http://www.cmsmadesimple-themes.com" id="A_16">CMS Made Simple Themes</a> Powered by <a href="http://www.cmsmadesimple.org" id="A_17">CMS Made Simple</a> version 1.11.9 - Bartolome
+		</p>
+		<p id="P_18">
+			Built with <a href="http://getbootstrap.com/" id="A_19">Bootstrap responsive framework</a>
+		</p>
+	</div>
+</footer>
+</body>
+
+</html>

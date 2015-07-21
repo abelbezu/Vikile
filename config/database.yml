@@ -10,11 +10,11 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
 default: &default
-  adapter: mysql2
+  adapter: sqlite3
   encoding: utf8
   pool: 5
   username: root
-  password:
+  password: 
   host: localhost
 
 development:
@@ -48,7 +48,11 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: vikile_production
-  username: vikile
-  password: <%= ENV['VIKILE_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: vikileco_user
+  password: 'bWM,Kxg_SFd5'
+  host: localhost
+  database: toucan_production
+

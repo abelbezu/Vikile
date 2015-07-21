@@ -1,0 +1,11 @@
+<!--<div class = "col-xs-12  category_title_col">
+                        <a href = "#" class="category_title">  KİŞİSEL GELİŞİM </a>
+                    </div>
+                    <% Article.all.personal.sample(4).each do |article|%>
+                            <%= render(:partial => "article_fields", :locals =>{:article => article})%>
+
+                    <div class = "col-xs-12  category_title_col">
+                        <a href = "#" class="category_title">  KİŞİSEL VE GENEL BAKIM </a>
+                    </div>
+                    <% Article.all.personal.sample(4).each do |article|%>
+                            <%= render(:partial => "article_fields", :locals =>{:article => article})%>-->

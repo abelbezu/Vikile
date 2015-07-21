@@ -1,0 +1,23 @@
+ <%= f.fields_for :segments do |segment_form| %>
+ <%= segment_form.hidden_field(:position, :value => "") %>
+ <div id = "parts_container_main">
+ 	<div class = "create_article_parts_container">
+ 		<div class = "content_container">
+ 			<div class = "ca_parts_title_container">
+ 				<div class = "title_label">
+ 					Part Title
+ 				</div>
+ 				<div class = "ca_parts_title_body">
+ 					<%= segment_form.text_field(:title, :class => "ca_part_title_box form-control") %>
+ 				</div>
+
+ 			</div>
+ 			<%= render partial: "articles/content", locals: {segment_form: segment_form}%>
+ 		</div>
+ 		<div style = "margin-top: 10px">
+ 			<%= segment_form.link_to_add "", :contents, :class => "glyphicon glyphicon-plus pull-right add_step_sign", :data => { :target => ".content_container" } %>
+ 		</div>
+ 	</div>	
+
+ </div>
+ <%end%>        

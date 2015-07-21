@@ -5,12 +5,12 @@ class CreateAccounts < ActiveRecord::Migration
       t.string 'last_name', :limit => 50
       t.string 'email', :null => false
       t.string 'gender'
-      t.string 'privilage', :default => 'user'
-      t.string "token"
+      t.string 'privilege', :default => 'user'
+      t.string "oauth_token"
+      t.string "provider"
       t.string 'refresh_token'
-      t.string 'expires_at'
+      t.datetime 'oauth_expires_at'
       t.string 'display_name', :limit => 50
-      t.string 'password_digest', :null =>false
       t.string 'picture', :limit =>50, :default => "profile_default.png"
       t.timestamps
     end

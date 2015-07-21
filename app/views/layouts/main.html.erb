@@ -1,118 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vikile</title>
+  <title>Vikile | <%= @page_title || "Home" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,300,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+        // Load this when the DOM is ready
+        $(function() {
+            // You used .myCarousel here.
+            // That's the class selector not the id selector,
+            // which is #myCarousel
+            $('#myCarousel').carousel( {interval: 6000});
+        });
+        </script>
+
   <%= csrf_meta_tags %>
+
+  <%= yield :head%>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
-<body>
-	<nav class="navbar navbar-inverse  navbar-fixed-top">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#"> <%= image_tag('vikilelogo2.png', :size => '46x120', :alt => "Brand", :class => "brand_image")%> </a>
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand header_brand_words" href="#"><%= image_tag('vikile.png', :alt => "Brand", :class => "brand_name")%> </a>
-				</div>
+<body class = "wall <%= controller_name %> <%= action_name %>">
+<%= yield :facebook_sdk%>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
+<%= render :partial => "layouts/nav" %>
+	
 
-					</ul>
-					<form class="navbar-form navbar-left navbar_search" role="search">
-						<div class="input-group search_group">
-							<input type="text" class="form-control" placeholder="Search">
 
-							<span class = "input-group-btn">
-								<button type="submit" class="btn btn-default" aria-label= "Search">
-									<span class="glyphicon glyphicon-search" ></span>
-								</button> </span>
-						</div>
-					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="#">Sign In</a>
-						</li>
-						<li>
-							<a href="#">Sign Up</a>
-						</li>
-						<li>
-							<a href="#">Notifications</a>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profile<span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li>
-									<a href="#">Action</a>
-								</li>
-								<li>
-									<a href="#">Another action</a>
-								</li>
-								<li>
-									<a href="#">Something else here</a>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<a href="#">Separated link</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="#"><i class="fa fa-google fa-lg"></i></a>
-						</li>
-						<li>
-							<a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-						</li>
-						<li>
-							<a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-						</li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
-	</nav>
-	<div class = 'main_row row'>
-
-	   <%= yield %>
-
-	</div>
+<%= yield %>
 
 </body>
-<footer class="footer">
-		<ul class="links">
-			<li class="text-center">
-				<a href="index.html" class="text-center"> Home </a>
-			</li>
-			<li class="text-center">
-				<a href="#" > About </a>
-			</li>
-			<li class="text-center">
-				<a href="#" > Write an Article </a>
-			</li>
-			<li class="text-center">
-				<a href="#" > Sign Up </a>
-			</li>
-
-		</ul>
-		<div class="terms_conditions text-center">
-			sibi pecooliar isto iuvene, questus ad puerum, et cor eius et iecur.
-			In plaustrum conari abscondat a puero puer. Claude ostium, ut puer, ut calidum in lecto, ut
-			condam se traheret vestibus caput, se existimet securum elit, sed leniter serpere reptant iuvenis eum et avellamus
-			eum ad viam patere . Custodiens me ne malum facerem tibi hoc tempore puer aegre. Durum
-			invenio wery intus puer off.
-		</div>
-		<div class="footer_logo">
-			<a class="footer_logo_link" href="index.html"><%= image_tag('vikile_green.png', :alt => "Vikile Logo", :class => "footer_logo_img")%></a>
-		</div>
-
-		<div class="footer_copyright_symbol text-center">
-			© Vikile 2015
-		</div>
-	</footer>
 </html>
