@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'vikile'
-set :repo_url, 'https://abel_bezu@bitbucket.org/bezukoko/vikile_main.git'
+set :repo_url, 'git@github.com:abelbezu/Vikile.git'
 set :git_https_username, 'abel_bezu@bitbucket.org'
 set :scm_password, "ethiopia00"
 # Default branch is :master
@@ -12,6 +12,7 @@ set :scm_password, "ethiopia00"
 set :deploy_to, '/home/vikileco/rails_apps/vikile'
 set :user, 'vikileco'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
+set :tmp_dir, "#{fetch(:home)}/tmp"
 # Default value for :scm is :git
 # set :scm, :git
 

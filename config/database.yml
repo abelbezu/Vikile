@@ -54,5 +54,5 @@ production:
   username: vikileco_user
   password: 'bWM,Kxg_SFd5'
   host: localhost
-  database: toucan_production
+  database: vikileco_production
 
